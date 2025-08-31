@@ -1,79 +1,61 @@
-Helmet Attribute Detection using YOLOv8
+# 🪖 Helmet Attribute Detection using YOLOv8
 
-This project implements a helmet attribute detection system using YOLOv8
-.
-A custom dataset of 1000+ annotated images was created and labeled to capture detailed helmet attributes, including:
+This project implements a **helmet attribute detection system** using **YOLOv8**.  
+A custom dataset of **1000+ annotated images** was created and labeled to capture detailed helmet attributes, including:
 
-✅ Presence of helmet
+- ✅ Presence of helmet  
+- ✅ Big surface cracks on helmet  
+- ✅ Chin belt usage  
+- ✅ Helmet color  
+- ✅ Team identification (based on logo or design)  
 
-✅ Big surface cracks on helmet
+This model can be applied in **manufacturing** and **refurbishing of helmets**.
 
-✅ Chin belt usage
+---
 
-✅ Helmet color
+## 🚀 Features
+- Multi-class and multi-attribute helmet detection  
+- Custom dataset with **1500+ annotated images**  
+- YOLOv8 training pipeline with **Roboflow integration**  
+- Supports inference on **images** and extendable to **video streams**  
+- Detects **damage, compliance, and identity** in helmets  
 
-✅ Team identification (based on logo or design)
+---
 
-This model can be applied in manufacturing, refurbishing of helmets.
+## 📂 Project Structure
+helmet3.ipynb # Jupyter Notebook with training + inference code
+runs/detect/ # YOLOv8 training outputs (generated after training)
+data.yaml # Dataset configuration (Roboflow export)
 
-🚀 Features
-
-Multi-class and multi-attribute helmet detection
-
-Custom dataset with 1500+ annotated images
-
-YOLOv8 training pipeline with Roboflow integration
-
-Supports inference on images and can be extended to video streams
-
-Detects damage, compliance, and identity in helmets
-
-📂 Project Structure
-helmet3.ipynb        # Jupyter Notebook with training + inference code
-runs/detect/         # YOLOv8 training outputs (generated after training)
-data.yaml            # Dataset configuration (Roboflow export)
-
-🛠️ Installation
-
-Clone the repository and install dependencies:
-
-git clone https://github.com/dhanya0053/helmet-attribute-detection.git
-cd helmet-attribute-detection
-pip install -r requirements.txt
-
-
-Dependencies:
+**Dependencies:**
 
 Python 3.8+
-
 ultralytics
-
 roboflow
 
 Or install manually:
 
 pip install ultralytics roboflow
 
-📊 Dataset
+**📊 Dataset**
 
 The dataset was created manually by annotating 1000+ helmet images with multiple attributes.
 Exported via Roboflow in YOLOv8 format.
-https://universe.roboflow.com/dhanya-c46vg/helmet_identification/browse
+
+🔗 Dataset link: Roboflow Dataset
+
 Attributes include:
 
-Surface cracks (big cracks vs no cracks)
-
-Chin belt (fastened/unfastened)
-
-Helmet color (e.g., red, blue, yellow, white)
-
-Team classification (logo/design-based)
+-Surface cracks (big cracks vs. no cracks)
+-Chin belt (fastened/unfastened)
+-Helmet color (e.g., red, blue, yellow, white)
+-Team classification (logo/design-based)
 
 Example annotation (YOLO format):
 
 class_id x_center y_center width height
 
-🏋️ Training
+🏋️** Training**
 
 Training YOLOv8 model on the dataset:
 
@@ -89,46 +71,39 @@ model.train(
     name="helmet_attribute_detector"
 )
 
-🔍 Inference
+**🔍 Inference**
 
 Run detection on new images:
+
+from ultralytics import YOLO
 
 model = YOLO("runs/detect/helmet_attribute_detector/weights/best.pt")
 results = model("test.jpg", show=True)
 
-
-You can also export the model for deployment:
-
+Export the model for deployment:
 yolo export model=runs/detect/helmet_attribute_detector/weights/best.pt format=onnx
 
-📈 Results
+**📈 Results**
 
 Dataset: 1000+ custom annotated images
-
 Model: YOLOv8n
-
 Epochs: 50
 
+Evaluation Metrics (Class B sample results):
+Precision: 61.17%
+Recall: 56.84%
+mAP@50: 59.95%
+mAP@50-95: 44.68%
+Fitness Score: 0.4621
+Speed (per image):
+Preprocessing: 0.22 ms
+Inference: 3.00 ms
 
-Evaluation Metrics (Class B sample results)
-- Precision: 61.17%
-- Recall: 56.84%
-- mAP@50: 59.95%
-- mAP@50-95: 44.68%
-- Fitness Score:0.4621
+Postprocessing: 3.40 ms
+➡️ ~6.6 ms total (~150 FPS)
 
-**Speed (per image):**
-- Preprocessing: 0.22 ms  
-- Inference: 3.00 ms  
-- Postprocessing: 3.40 ms  
-➡️ **~6.6 ms total (~150 FPS)**
-<img width="257" height="196" alt="image" src="https://github.com/user-attachments/assets/e4258d36-2888-4796-9d2e-323c08dc1c14" />
-
-
-📌 Future Improvements
-
-Real-time helmet attribute detection from live video
-
-Support for more helmet attributes (material type, sticker detection)
-
-Deployment on mobile/edge devices (Jetson Nano, Raspberry Pi)
+**📌 Future Improvements
+**
+-Real-time helmet attribute detection from live video
+-Support for more helmet attributes (e.g., material type, sticker detection)
+-Deployment on mobile/edge devices (Jetson Nano, Raspberry Pi)
