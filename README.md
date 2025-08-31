@@ -102,6 +102,4 @@ Postprocessing: 3.40 ms
 ➡️ ~6.6 ms total (~150 FPS)
 
 **📌 Future Improvements**
--Real-time helmet attribute detection from live video
--Support for more helmet attributes (e.g., material type, sticker detection)
--Deployment on mobile/edge devices (Jetson Nano, Raspberry Pi)
+-Real-time helmet attribute detection from live video, Support for more helmet attributes (e.g., material type, sticker detection), Deployment on mobile/edge devices (Jetson Nano, Raspberry Pi)
