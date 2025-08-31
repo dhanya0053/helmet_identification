@@ -87,6 +87,7 @@ yolo export model=runs/detect/helmet_attribute_detector/weights/best.pt format=o
 Dataset: 1000+ custom annotated images
 Model: YOLOv8n
 Epochs: 50
+<img width="257" height="196" alt="image" src="https://github.com/user-attachments/assets/8fe61b2a-89cb-4ac4-8228-963e1ff32cfe" />
 
 Evaluation Metrics (Class B sample results):
 Precision: 61.17%
