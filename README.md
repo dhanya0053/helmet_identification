@@ -41,10 +41,9 @@ pip install ultralytics roboflow
 
 The dataset was created manually by annotating 1000+ helmet images with multiple attributes.
 Exported via Roboflow in YOLOv8 format.
+https://app.roboflow.com/dhanya-c46vg/helmet_identification/browse
 
-🔗 Dataset link: Roboflow Dataset
-
-Attributes include:
+**Attributes include:**
 
 -Surface cracks (big cracks vs. no cracks)
 -Chin belt (fastened/unfastened)
@@ -55,7 +54,7 @@ Example annotation (YOLO format):
 
 class_id x_center y_center width height
 
-🏋️** Training**
+**🏋️ Training**
 
 Training YOLOv8 model on the dataset:
 
@@ -102,8 +101,7 @@ Inference: 3.00 ms
 Postprocessing: 3.40 ms
 ➡️ ~6.6 ms total (~150 FPS)
 
-**📌 Future Improvements
-**
+**📌 Future Improvements**
 -Real-time helmet attribute detection from live video
 -Support for more helmet attributes (e.g., material type, sticker detection)
 -Deployment on mobile/edge devices (Jetson Nano, Raspberry Pi)
